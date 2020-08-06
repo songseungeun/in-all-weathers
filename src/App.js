@@ -1,14 +1,8 @@
 import React from "react";
-import CurrentWeather from "./Components/CurrentWeather";
-import HourWeather from "./Components/HourWeather";
+import WeatherContainer from "./Modules/WeatherContainer";
 
 function App() {
-  return (
-    <>
-      <CurrentWeather />
-      <HourWeather />
-    </>
-  );
+  return <WeatherContainer />;
 }
 
 export default App;
