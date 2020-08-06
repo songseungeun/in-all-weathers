@@ -32,7 +32,7 @@ const WeatherContainer = () => {
 
   return (
     <>
-      <CurrentWeather current={current} timezone={timezone} />
+      <CurrentWeather current={current} daily={daily} timezone={timezone} />
       <HourlyWeather hourly={hourly} />
       <DailyWeather daily={daily} />
     </>

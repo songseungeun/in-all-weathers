@@ -48,6 +48,7 @@ const DailyWeather = ({ daily }) => {
           const day = dayNames[new Date(dailyWeather.dt * 1000).getDay()];
           const month = new Date(dailyWeather.dt * 1000).getMonth() + 1;
           const date = new Date(dailyWeather.dt * 1000).getDate();
+          const chanceOfRain = Math.round(dailyWeather.pop * 10) * 10;
           // console.log(hour);
           return (
             <DailyItem key={dailyWeather.dt}>
@@ -56,7 +57,11 @@ const DailyWeather = ({ daily }) => {
                 {month}/{date}
               </em>
               <WeatherIcon icon={dailyWeather.weather[0].icon} />
-              <span>{Math.floor(dailyWeather.temp.day)}˚</span>
+              <em>{chanceOfRain}%</em>&nbsp;
+              <span>
+                {Math.floor(dailyWeather.temp.min)}˚/&nbsp;
+                {Math.floor(dailyWeather.temp.max)}˚
+              </span>
             </DailyItem>
           );
         })}

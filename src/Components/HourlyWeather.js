@@ -41,11 +41,13 @@ const HourlyWeather = ({ hourly }) => {
       <HourlyList>
         {hourly.map((hourlyWeather) => {
           const hour = new Date(hourlyWeather.dt * 1000).getHours();
+          const chanceOfRain = Math.round(hourlyWeather.pop * 10) * 10;
           // console.log(hour);
           return (
             <HourlyItem key={hourlyWeather.dt}>
               {hour ? null : <strong>내일</strong>}
               <em>{hour}시</em>
+              {chanceOfRain >= 30 ? <span>{chanceOfRain}%</span> : null}
               <WeatherIcon icon={hourlyWeather.weather[0].icon} />
               <span>{Math.floor(hourlyWeather.temp)}˚</span>
             </HourlyItem>
